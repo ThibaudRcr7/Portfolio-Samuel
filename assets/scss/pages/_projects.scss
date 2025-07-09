@@ -101,12 +101,12 @@
 // Éléments du menu sélecteur - Titres massifs
 .project-title {
     font-family: $font-primary;
-    font-size: clamp(4rem, 6vw, 8rem);
+    font-size: clamp(3rem, 4vw, 6rem); // Réduit la taille max pour éviter le débordement
     font-weight: $font-weight-regular;
     text-transform: uppercase;
     font-weight: bold;
     background: none;
-    padding: $spacing-3 0; // Padding vertical uniquement, le horizontal est géré par le container
+    padding: $spacing-3 clamp($spacing-2, 3vw, $spacing-4); // Padding horizontal responsive
     cursor: pointer; // Rendre cliquable
     transition: all 0.3s ease;
     border: none;
@@ -122,11 +122,17 @@
     line-height: 1.1;
     letter-spacing: 0.05em;
     width: 100%; // Assure que l'élément prend toute la largeur
+    overflow: hidden; // Empêche le débordement
+    word-wrap: break-word; // Permet la coupure des mots longs
+    hyphens: auto; // Coupure automatique des mots
 
     span {
         display: block;
         line-height: 1.1;
         letter-spacing: 0.05em;
+        max-width: 100%; // Limite la largeur du span
+        overflow-wrap: break-word; // Coupe les mots longs
+        word-break: break-word; // Coupe les mots si nécessaire
     }
 
     // État actif - élément centré
@@ -268,12 +274,12 @@
 
     .project-title {
         min-height: 20vh;
-        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-size: clamp(1.8rem, 4vw, 2.5rem); // Ajusté pour éviter le débordement
         scroll-snap-align: center;
-        padding: $spacing-2 0;
+        padding: $spacing-2 clamp($spacing-1, 2vw, $spacing-3); // Padding horizontal responsive
 
         &.active {
-            font-size: clamp(2rem, 5.5vw, 3.2rem);
+            font-size: clamp(2rem, 4.5vw, 2.8rem); // Ajusté proportionnellement
         }
     }
 

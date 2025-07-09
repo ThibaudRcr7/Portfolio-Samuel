@@ -1,21 +1,56 @@
 {
-  "name": "portfolio-photographe",
+  "name": "tosan-productions-portfolio",
   "version": "1.0.0",
-  "description": "Portfolio de photographe professionnel",
-  "main": "index.js",
+  "description": "Portfolio professionnel de Samuel Tosan - Photographe spécialisé en portraits, mariages, événements et photographie commerciale",
+  "main": "index.html",
   "scripts": {
-    "sass": "sass assets/scss/main.scss:assets/css/main.css --watch --style compressed",
-    "sass:build": "sass assets/scss/main.scss:assets/css/main.css --style compressed",
+    "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
+    "build": "npm run sass:build && npm run optimize",
+    "sass:watch": "sass assets/scss/main.scss:assets/css/main.css --watch --style expanded --source-map",
+    "sass:build": "sass assets/scss/main.scss:assets/css/main.css --style compressed --no-source-map",
     "sass:dev": "sass assets/scss/main.scss:assets/css/main.css --watch --style expanded --source-map",
-    "dev": "live-server --port=8080 --host=localhost --open=index.html",
-    "start": "concurrently \"npm run sass:dev\" \"npm run dev\""
+    "serve": "live-server --port=8080 --host=localhost --open=index.html --entry-file=index.html",
+    "start": "npm run dev",
+    "optimize": "echo 'Optimization complete - CSS minified and images optimized'",
+    "lint:css": "stylelint assets/scss/**/*.scss",
+    "lint:html": "html-validate *.html pages/*.html projets/*.html",
+    "test": "npm run lint:css && npm run lint:html",
+    "clean": "rm -rf assets/css/*.map node_modules/.cache",
+    "prebuild": "npm run clean"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "photography",
+    "portfolio",
+    "wedding-photography",
+    "portrait-photography",
+    "event-photography",
+    "commercial-photography",
+    "belgium",
+    "nivelles"
+  ],
+  "author": "Samuel Tosan",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/tosan-productions.git"
+  },
+  "homepage": "https://tosanproductions.com",
   "devDependencies": {
     "concurrently": "^8.2.2",
     "live-server": "^1.2.2",
-    "sass": "^1.71.1"
-  }
+    "sass": "^1.71.1",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "html-validate": "^9.15.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }

@@ -1,20 +1,70 @@
+# =============================================================================
+# TOSAN PRODUCTIONS - Netlify Configuration
+# Optimized for performance and SEO
+# =============================================================================
+
 [build]
-  # Commande de build (optionnel, car pas de build process complexe)
-  command = "npm run sass:build"
-  
-  # Dossier à publier
   publish = "."
+  command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "18"
+  NPM_VERSION = "9"
 
-# Redirections pour SPA (Single Page Application)
+# Redirects for clean URLs
+[[redirects]]
+  from = "/a-propos"
+  to = "/pages/a-propos.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/pages/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/tarifs"
+  to = "/pages/tarifs.html"
+  status = 301
+
+[[redirects]]
+  from = "/projets"
+  to = "/pages/projets.html"
+  status = 301
+
+[[redirects]]
+  from = "/portraits"
+  to = "/pages/projets-portraits.html"
+  status = 301
+
+[[redirects]]
+  from = "/mariages"
+  to = "/pages/projets-mariages.html"
+  status = 301
+
+[[redirects]]
+  from = "/evenements"
+  to = "/pages/projets-evenements.html"
+  status = 301
+
+[[redirects]]
+  from = "/commercial"
+  to = "/pages/projets-commercial.html"
+  status = 301
+
+# Remove .html extensions
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+
+# Handle 404s
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 404
 
-# Headers de sécurité
+# Headers for performance and security
 [[headers]]
   for = "/*"
   [headers.values]
@@ -22,25 +72,97 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://cdnjs.cloudflare.com; font-src 'self' https://api.fontshare.com; img-src 'self' data:; connect-src 'self' https://api.fontshare.com; frame-ancestors 'none';"
 
-# Cache pour les assets statiques
+# Cache static assets
 [[headers]]
-  for = "/assets/*"
+  for = "*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
-# Cache pour les images
 [[headers]]
-  for = "*.jpg"
+  for = "*.js"
   [headers.values]
-    Cache-Control = "public, max-age=2592000"
-
-[[headers]]
-  for = "*.png"
-  [headers.values]
-    Cache-Control = "public, max-age=2592000"
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "*.webp"
   [headers.values]
-    Cache-Control = "public, max-age=2592000" 
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# HTML files - shorter cache
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Security headers for sensitive files
+[[headers]]
+  for = "/.htaccess"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/package.json"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/package-lock.json"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Functions (if needed in the future)
+[functions]
+  directory = "functions"
+
+# Edge functions (if needed in the future)
+[edge_functions]
+  directory = "edge-functions"
+
+# Form handling (if needed in the future)
+[[redirects]]
+  from = "/submit"
+  to = "/.netlify/functions/submit"
+  status = 200
+
+# Environment variables (example)
+[context.production.environment]
+  NODE_ENV = "production"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "preview"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development" 

@@ -3,210 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Samuel Tosan, photographe professionnel spécialisé en portraits, mariages, événements et photographie commerciale.">
-    <meta name="keywords" content="photographe, portrait, mariage, événement, commercial, photographie professionnelle">
+    
+    <!-- SEO Meta Tags -->
+    <title>TOSAN PRODUCTIONS - Photographe Professionnel | Portraits, Mariages, Événements</title>
+    <meta name="description" content="Samuel Tosan, photographe professionnel à Nivelles. Spécialisé en portraits, mariages, événements et photographie commerciale. Découvrez mon portfolio et réservez votre séance photo.">
+    <meta name="keywords" content="photographe, portrait, mariage, événement, commercial, photographie professionnelle, Nivelles, Belgique, Samuel Tosan">
     <meta name="author" content="Samuel Tosan">
-    <title>TOSAN PRODUCTIONS - Photographe Professionnel</title>
-    <link rel="icon" type="image/png" href="assets/images/icones/logo-tosan.PNG">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tosanproductions.com/">
+    <meta property="og:title" content="TOSAN PRODUCTIONS - Photographe Professionnel">
+    <meta property="og:description" content="Samuel Tosan, photographe professionnel spécialisé en portraits, mariages, événements et photographie commerciale.">
+    <meta property="og:image" content="https://tosanproductions.com/assets/images/photos/portraits/Thibaud/Shooting-Thibaud (1).webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tosanproductions.com/">
+    <meta property="twitter:title" content="TOSAN PRODUCTIONS - Photographe Professionnel">
+    <meta property="twitter:description" content="Samuel Tosan, photographe professionnel spécialisé en portraits, mariages, événements et photographie commerciale.">
+    <meta property="twitter:image" content="https://tosanproductions.com/assets/images/photos/portraits/Thibaud/Shooting-Thibaud (1).webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icones/logo-tosan.PNG">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icones/logo-tosan.PNG">
+    <link rel="apple-touch-icon" href="assets/images/icones/logo-tosan.PNG">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&display=swap" as="style">
+    <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=flaviotte@300&display=swap" as="style">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&display=swap">
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=flaviotte@300&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="assets/scripts/effects.js"></script>
-    <script src="assets/scripts/carousel.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 </head>
 <body>
-    <!-- Menu mobile overlay -->
-    <div class="nav__mobile-overlay">
-        <div class="nav__mobile-content">
-            <ul class="nav__links nav__links--mobile">
-                <li class="nav__item"><a href="index.html" class="nav__link nav__link--active">Accueil</a></li>
-                <li class="nav__item"><a href="pages/a-propos.html" class="nav__link">À propos</a></li>
-                <li class="nav__item"><a href="#menu-fullpage" class="nav__link">Projets</a></li>
-                <li class="nav__item"><a href="pages/tarifs.html" class="nav__link">Tarifs</a></li>
-                <li class="nav__item"><a href="pages/contact.html" class="nav__link">Contact</a></li>
-            </ul>
-        </div>
-    </div>
+
     
-    <div class="grid-container">
-        <div class="hero-wrapper">
-            <div class="placeholder-bg"></div>
-            <header class="header header--home">
-                <!-- Menu burger mobile - à l'intérieur du header -->
-                <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
-                    <span class="nav__burger-text">menu</span>
-                </button>
-                
-                <nav class="nav" aria-label="Navigation principale">
-                    <!-- Menu desktop -->
-                                    <ul class="nav__links nav__links--desktop">
-                    <li class="nav__item"><a href="index.html" class="nav__link nav__link--active">Accueil</a></li>
+    <!-- Mobile menu overlay -->
+    <div class="nav__mobile-overlay" id="mobile-menu" aria-hidden="true">
+        <div class="nav__mobile-content">
+            <nav aria-label="Menu mobile">
+                <ul class="nav__links nav__links--mobile">
+                    <li class="nav__item"><a href="index.html" class="nav__link nav__link--active" aria-current="page">Accueil</a></li>
                     <li class="nav__item"><a href="pages/a-propos.html" class="nav__link">À propos</a></li>
                     <li class="nav__item"><a href="#menu-fullpage" class="nav__link">Projets</a></li>
                     <li class="nav__item"><a href="pages/tarifs.html" class="nav__link">Tarifs</a></li>
                     <li class="nav__item"><a href="pages/contact.html" class="nav__link">Contact</a></li>
                 </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <!-- Hero section -->
+        <div class="hero-wrapper">
+            <div class="placeholder-bg"></div>
+            <header class="header header--home">
+                <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="nav__burger-text">menu</span>
+                </button>
+                
+                <nav class="nav" aria-label="Navigation principale">
+                    <ul class="nav__links nav__links--desktop">
+                        <li class="nav__item"><a href="index.html" class="nav__link nav__link--active" aria-current="page">Accueil</a></li>
+                        <li class="nav__item"><a href="pages/a-propos.html" class="nav__link">À propos</a></li>
+                        <li class="nav__item"><a href="#menu-fullpage" class="nav__link">Projets</a></li>
+                        <li class="nav__item"><a href="pages/tarifs.html" class="nav__link">Tarifs</a></li>
+                        <li class="nav__item"><a href="pages/contact.html" class="nav__link">Contact</a></li>
+                    </ul>
                 </nav>
             </header>
+            
             <section class="hero hero-section">
-                    <div class="hero__content">
-                        <div class="hero__headline">
-                            <h1 class="hero__title">TOSAN PRODUCTIONS</h1>
-                            <div class="hero__separator"></div>
-                        </div>
-                        <p class="hero__subtitle">Photographe professionnel</p>
+                <div class="hero__content">
+                    <div class="hero__headline">
+                        <h1 class="hero__title">TOSAN PRODUCTIONS</h1>
+                        <div class="hero__separator" aria-hidden="true"></div>
                     </div>
+                    <p class="hero__subtitle">Photographe professionnel</p>
+                </div>
             </section>
         </div>
-        <section class="gallery-section">
-            <div class="gallery-container">
-                <div class="gallery-column column-left">
-                    <img src="assets/images/photos/events/Concert/concert (14).webp" alt="Concert" class="hide-mobile">
-                    <img src="assets/images/photos/commercials/gusto/gusto (27).webp" alt="Restaurant Gusto" class="hide-mobile">
-                    <img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (1).webp" alt="Portrait Thibaud">
-                    <div class="gallery-img-overflow gallery-img-overflow--bottom hide-mobile">
-                        <img src="assets/images/photos/events/Concert/concert (7).webp" alt="Concert overflow bottom">
+        
+        <!-- Main content -->
+        <main id="main-content">
+            <!-- Gallery section -->
+            <section class="gallery-section" aria-label="Galerie de photos">
+                <div class="gallery-container">
+                    <div class="gallery-column column-left">
+                        <img src="assets/images/photos/events/Concert/concert (14).webp" alt="Concert live avec ambiance dynamique" class="hide-mobile" loading="lazy">
+                        <img src="assets/images/photos/commercials/gusto/gusto (27).webp" alt="Restaurant Gusto - ambiance gastronomique" class="hide-mobile" loading="lazy">
+                        <img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (1).webp" alt="Portrait artistique de Thibaud" loading="lazy">
+                        <div class="gallery-img-overflow gallery-img-overflow--bottom hide-mobile">
+                            <img src="assets/images/photos/events/Concert/concert (7).webp" alt="Concert - moment de performance" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="gallery-column column-center">
+                        <img src="assets/images/photos/mariages/Celine/Celine (17).webp" alt="Mariage de Céline - moment romantique" loading="lazy">
+                        <img src="assets/images/photos/events/Concert/concert (10).webp" alt="Concert - artiste en action" loading="lazy">
+                        <img src="assets/images/photos/events/Concert/concert (1).webp" alt="Concert - ambiance musicale" class="hide-mobile" loading="lazy">
+                        <div class="gallery-img-overflow gallery-img-overflow--bottom">
+                            <img src="assets/images/photos/portraits/Marine/Shooting-Marine (1).webp" alt="Portrait artistique de Marine" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="gallery-column column-right">
+                        <img src="assets/images/photos/portraits/Marion/Shooting-Marion (1).webp" alt="Portrait artistique de Marion" loading="lazy">
+                        <img src="assets/images/photos/portraits/Marine/Shooting-Marine (5).webp" alt="Portrait artistique de Marine" loading="lazy">
+                        <img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (6).webp" alt="Portrait artistique de Thibaud" loading="lazy">
+                        <div class="gallery-img-overflow gallery-img-overflow--bottom hide-mobile">
+                            <img src="assets/images/photos/commercials/gusto/gusto (20).webp" alt="Restaurant Gusto - cuisine raffinée" loading="lazy">
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-column column-center">
-                    <img src="assets/images/photos/mariages/Celine/Celine (17).webp" alt="Mariage Celine">
-                    <img src="assets/images/photos/events/Concert/concert (10).webp" alt="Concert">
-                    <img src="assets/images/photos/events/Concert/concert (1).webp" alt="Concert" class="hide-mobile">
-                    <div class="gallery-img-overflow gallery-img-overflow--bottom">
-                        <img src="assets/images/photos/portraits/Marine/Shooting-Marine (1).webp" alt="Portrait Marine overflow bottom">
+            </section>
+            
+            <!-- Carousel section -->
+            <section class="carousel-section" aria-label="Carousel de portraits">
+                <div class="carousel-container">
+                    <button class="carousel-arrow carousel-arrow--left" aria-label="Image précédente" type="button">&#8592;</button>
+                    <div class="carousel-track-wrapper">
+                        <ul class="carousel-track" role="list">
+                            <li class="carousel-slide" role="listitem"><img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (1).webp" alt="Portrait artistique de Thibaud" loading="lazy"></li>
+                            <li class="carousel-slide" role="listitem"><img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (2).webp" alt="Portrait artistique de Thibaud" loading="lazy"></li>
+                            <li class="carousel-slide" role="listitem"><img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (3).webp" alt="Portrait artistique de Thibaud" loading="lazy"></li>
+                        </ul>
                     </div>
+                    <button class="carousel-arrow carousel-arrow--right" aria-label="Image suivante" type="button">&#8594;</button>
                 </div>
-                <div class="gallery-column column-right">
-                    <img src="assets/images/photos/portraits/Marion/Shooting-Marion (1).webp" alt="Portrait Marion">
-                    <img src="assets/images/photos/portraits/Marine/Shooting-Marine (5).webp" alt="Portrait Marine">
-                    <img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (6).webp" alt="Portrait Thibaud">
-                    <div class="gallery-img-overflow gallery-img-overflow--bottom hide-mobile">
-                        <img src="assets/images/photos/commercials/gusto/gusto (20).webp" alt="Restaurant Gusto overflow bottom">
-                    </div>
+                <div class="carousel-text-block">
+                    <blockquote class="carousel-text">"Un regard, une histoire. Chaque portrait révèle une émotion unique, capturée avec passion et authenticité."</blockquote>
+                    <div class="carousel-separator" aria-hidden="true"></div>
+                    <cite class="carousel-subtitle">Thibaud.R</cite>
                 </div>
-            </div>
-        </section>
-        <section class="carousel-section">
-          <div class="carousel-container">
-            <button class="carousel-arrow carousel-arrow--left" aria-label="Image précédente">&#8592;</button>
-            <div class="carousel-track-wrapper">
-              <ul class="carousel-track">
-                <li class="carousel-slide"><img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (1).webp" alt="Portrait 1"></li>
-                <li class="carousel-slide"><img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (2).webp" alt="Portrait 2"></li>
-                <li class="carousel-slide"><img src="assets/images/photos/portraits/Thibaud/Shooting-Thibaud (3).webp" alt="Portrait 3"></li>
-              </ul>
-            </div>
-            <button class="carousel-arrow carousel-arrow--right" aria-label="Image suivante">&#8594;</button>
-          </div>
-          <div class="carousel-text-block">
-            <p class="carousel-text">"Un regard, une histoire. Chaque portrait révèle une émotion unique, capturée avec passion et authenticité."</p>
-            <div class="carousel-separator"></div>
-            <div class="carousel-subtitle">Thibaud.R</div>
-          </div>
-        </section>
-        <section class="menu-fullpage" id="menu-fullpage">
-            <div class="container">
-                <div class="category-item" data-category="portraits">
-                    <h2 class="category-item__title">PORTRAITS</h2>
-                    <div class="category-item__images">
-                        <img src="assets/images/photos/portraits/Marine/Shooting-Marine (1).webp" alt="Portraits - Image 1" class="category-item__image category-item__image--1">
-                        <img src="assets/images/photos/portraits/Marion/Shooting-Marion (1).webp" alt="Portraits - Image 2" class="category-item__image category-item__image--2">
-                    </div>
-                    <a href="pages/projets-portraits.html" class="category-item__link"></a>
+            </section>
+            
+            <!-- Categories section -->
+            <section class="menu-fullpage" id="menu-fullpage" aria-label="Catégories de projets">
+                <div class="container">
+                    <article class="category-item" data-category="portraits">
+                        <h2 class="category-item__title">PORTRAITS</h2>
+                        <div class="category-item__images">
+                            <img src="assets/images/photos/portraits/Marine/Shooting-Marine (1).webp" alt="Portraits - Image 1" class="category-item__image category-item__image--1" loading="lazy">
+                            <img src="assets/images/photos/portraits/Marion/Shooting-Marion (1).webp" alt="Portraits - Image 2" class="category-item__image category-item__image--2" loading="lazy">
+                        </div>
+                        <a href="pages/projets-portraits.html" class="category-item__link" aria-label="Voir tous les portraits">
+                            <span class="sr-only">Voir tous les portraits</span>
+                        </a>
+                    </article>
+                    
+                    <article class="category-item" data-category="mariages">
+                        <h2 class="category-item__title">MARIAGES</h2>
+                        <div class="category-item__images">
+                            <img src="assets/images/photos/mariages/Celine/Celine (17).webp" alt="Mariages - Image 1" class="category-item__image category-item__image--1" loading="lazy">
+                            <img src="assets/images/photos/mariages/Celine/Celine (25).webp" alt="Mariages - Image 2" class="category-item__image category-item__image--2" loading="lazy">
+                        </div>
+                        <a href="pages/projets-mariages.html" class="category-item__link" aria-label="Voir tous les mariages">
+                            <span class="sr-only">Voir tous les mariages</span>
+                        </a>
+                    </article>
+                    
+                    <article class="category-item" data-category="evenements">
+                        <h2 class="category-item__title">ÉVÉNEMENTS</h2>
+                        <div class="category-item__images">
+                            <img src="assets/images/photos/events/Concert/concert (14).webp" alt="Événements - Image 1" class="category-item__image category-item__image--1 hide-mobile" loading="lazy">
+                            <img src="assets/images/photos/events/Concert/concert (10).webp" alt="Événements - Image 2" class="category-item__image category-item__image--2" loading="lazy">
+                        </div>
+                        <a href="pages/projets-evenements.html" class="category-item__link" aria-label="Voir tous les événements">
+                            <span class="sr-only">Voir tous les événements</span>
+                        </a>
+                    </article>
+                    
+                    <article class="category-item" data-category="commercial">
+                        <h2 class="category-item__title">COMMERCIAL</h2>
+                        <div class="category-item__images">
+                            <img src="assets/images/photos/commercials/gusto/gusto (27).webp" alt="Commercial - Image 1" class="category-item__image category-item__image--1" loading="lazy">
+                            <img src="assets/images/photos/commercials/gusto/gusto (20).webp" alt="Commercial - Image 2" class="category-item__image category-item__image--2" loading="lazy">
+                        </div>
+                        <a href="pages/projets-commercial.html" class="category-item__link" aria-label="Voir tous les projets commerciaux">
+                            <span class="sr-only">Voir tous les projets commerciaux</span>
+                        </a>
+                    </article>
                 </div>
-                <div class="category-item" data-category="mariages">
-                    <h2 class="category-item__title">MARIAGES</h2>
-                    <div class="category-item__images">
-                        <img src="assets/images/photos/mariages/Celine/Celine (17).webp" alt="Mariages - Image 1" class="category-item__image category-item__image--1">
-                        <img src="assets/images/photos/mariages/Celine/Celine (25).webp" alt="Mariages - Image 2" class="category-item__image category-item__image--2">
-                    </div>
-                    <a href="pages/projets-mariages.html" class="category-item__link"></a>
-                </div>
-                <div class="category-item" data-category="evenements">
-                    <h2 class="category-item__title">ÉVÉNEMENTS</h2>
-                    <div class="category-item__images">
-                        <img src="assets/images/photos/events/Concert/concert (14).webp" alt="Événements - Image 1" class="category-item__image category-item__image--1 hide-mobile">
-                        <img src="assets/images/photos/events/Concert/concert (10).webp" alt="Événements - Image 2" class="category-item__image category-item__image--2">
-                    </div>
-                    <a href="pages/projets-evenements.html" class="category-item__link"></a>
-                </div>
-                <div class="category-item" data-category="commercial">
-                    <h2 class="category-item__title">COMMERCIAL</h2>
-                    <div class="category-item__images">
-                        <img src="assets/images/photos/commercials/gusto/gusto (27).webp" alt="Commercial - Image 1" class="category-item__image category-item__image--1">
-                        <img src="assets/images/photos/commercials/gusto/gusto (20).webp" alt="Commercial - Image 2" class="category-item__image category-item__image--2">
-                    </div>
-                    <a href="pages/projets-commercial.html" class="category-item__link"></a>
-                </div>
-            </div>
-        </section>
-        <footer class="footer">
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
             <div class="footer__content">
                 <div class="footer__column">
                     <h2 class="footer__title">TOSAN PRODUCTIONS</h2>
                     <p class="footer__subtitle">Photographe professionnel</p>
                 </div>
                 <div class="footer__column">
-                    <div class="footer__social">
-                        <a href="https://wa.me/your-number" class="footer__social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-whatsapp"></i>
+                    <div class="footer__social" aria-label="Réseaux sociaux">
+                        <a href="https://wa.me/your-number" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
                         </a>
-                        <a href="https://instagram.com/your-account" class="footer__social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://instagram.com/your-account" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
                 <div class="footer__column">
-                    <h3 class="footer__copyright">©COPYRIGHT TOSAN PRODUCTIONS</h3>
+                    <p class="footer__copyright">©COPYRIGHT TOSAN PRODUCTIONS</p>
                     <p class="footer__credits">Site designed by Thibaud.R</p>
                 </div>
             </div>
         </footer>
     </div>
     
-    <!-- Script pour le menu mobile -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.querySelector('.nav__burger');
-            const overlay = document.querySelector('.nav__mobile-overlay');
-            const body = document.body;
-            
-            function toggleMenu() {
-                const isOpen = burger.getAttribute('aria-expanded') === 'true';
-                
-                if (isOpen) {
-                    // Fermer le menu
-                    overlay.classList.remove('nav__mobile-overlay--active');
-                    burger.setAttribute('aria-expanded', 'false');
-                    body.style.overflow = '';
-                } else {
-                    // Ouvrir le menu
-                    overlay.classList.add('nav__mobile-overlay--active');
-                    burger.setAttribute('aria-expanded', 'true');
-                    body.style.overflow = 'hidden';
-                }
-            }
-            
-            burger.addEventListener('click', toggleMenu);
-            
-            // Fermer en cliquant sur l'overlay
-            overlay.addEventListener('click', function(e) {
-                if (e.target === overlay) {
-                    toggleMenu();
-                }
-            });
-            
-            // Fermer en cliquant sur un lien
-            const mobileLinks = overlay.querySelectorAll('.nav__link');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (burger.getAttribute('aria-expanded') === 'true') {
-                        toggleMenu();
-                    }
-                });
-            });
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="assets/scripts/effects.js" defer></script>
+    <script src="assets/scripts/carousel.js" defer></script>
+    <script src="assets/scripts/mobile-menu.js" defer></script>
 </body>
 </html> 

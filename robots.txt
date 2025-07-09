@@ -1,0 +1,60 @@
+# =============================================================================
+# TOSAN PRODUCTIONS - Robots.txt
+# Optimized for search engine crawling
+# =============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tosanproductions.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /logs/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+
+# Allow important pages
+Allow: /index.html
+Allow: /pages/
+Allow: /projets/
+Allow: /assets/images/
+Allow: /assets/css/
+Allow: /assets/scripts/
+
+# Crawl delay (optional - be respectful to server)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: / 

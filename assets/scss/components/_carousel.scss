@@ -197,9 +197,9 @@
 
   .carousel-subtitle {
     color: var(--color-accent);
-    font-family: 'Flaviotte', var(--font-text), sans-serif;
+    font-family: var(--font-secondary);
     font-size: 2rem;
-    font-weight: $font-weight-light;
+    font-weight: 300;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-align: center;

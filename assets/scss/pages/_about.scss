@@ -147,6 +147,9 @@
     padding: $spacing-4;
     text-align: center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     // Bordure horizontale en bas
     &::after {
@@ -179,13 +182,16 @@
     }
 }
 
+.about-photo-mobile {
+    display: none; // Caché par défaut sur desktop
+}
+
 // Nouvelle section Portrait-Text
 .portrait-text-section {
     min-height: 80vh;
     background-color: $color-bg;
     color: $color-text;
     position: relative;
-    border-top: 1px solid $color-tertiary; // Bordure horizontale en haut
 
     & > .container {
         max-width: none;
@@ -285,7 +291,6 @@
         max-width: 100%;
         min-width: 0;
         height: auto;
-        min-height: 50vh;
     }
     
     .about-left {
@@ -298,6 +303,33 @@
     
     .about-right {
         flex-direction: column;
+        order: 2; // Place la section droite en deuxième
+    }
+    
+    .about-left {
+        order: 1; // Place la section gauche en premier
+    }
+    
+    .about-left__top {
+        order: 1; // Titre principal en premier
+        border-bottom: 1px solid $color-tertiary; // Bordure en bas pour séparer de la photo
+    }
+    
+    .about-photo-mobile {
+        order: 2; // Photo mobile en deuxième (après le titre principal)
+    }
+    
+    .about-left__bottom {
+        order: 3; // Citation en troisième
+        border-bottom: 1px solid $color-tertiary; // Bordure en bas pour séparer de la section suivante
+    }
+    
+    .about-intro {
+        order: 4; // "Qui je suis ?" en quatrième
+    }
+    
+    .about-photo {
+        order: 5; // Photo desktop en dernier
     }
     
     .about-identity {
@@ -320,6 +352,7 @@
     .about-quote {
         padding: $spacing-1;
         min-height: 50vh;
+        background-color: transparent;
         
         &__text {
             max-width: 100%;
@@ -330,8 +363,21 @@
         min-height: 20vh;
     }
     .about-photo {
-        aspect-ratio: 3/4; // Maintient les proportions sur mobile
+        display: none; // Cache l'image desktop en version mobile
+    }
+    
+    .about-photo-mobile {
+        display: block;
+        aspect-ratio: 3/4;
         min-height: 30vh;
+        order: 2; // Place la photo en deuxième (après le titre principal)
+        border-bottom: 1px solid $color-tertiary; // Bordure en bas pour séparer de la citation
+        
+        .about-photo__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     // Media queries pour la nouvelle section Portrait-Text

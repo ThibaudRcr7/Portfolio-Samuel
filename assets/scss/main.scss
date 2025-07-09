@@ -1,13 +1,23 @@
+/* ==========================================================================
+   TOSAN PRODUCTIONS - Main Stylesheet
+   Optimized for performance, accessibility and SEO
+   ========================================================================== */
+
+// Abstracts
 @use 'abstracts';
+
+// Base styles
 @use 'base/reset';
 @use 'base/typography';
 @use 'base/utilities';
 
+// Layout components
 @use 'layout/header';
 @use 'layout/footer' as layout-footer;
 @use 'layout/grid';
 @use 'layout/hero-wrapper';
 
+// UI Components
 @use 'components/buttons';
 @use 'components/navigation';
 @use 'components/hero';
@@ -15,6 +25,7 @@
 @use 'components/carousel';
 @use 'components/menu-fullpage';
 
+// Page-specific styles
 @use 'pages/home';
 @use 'pages/about';
 @use 'pages/projects';
@@ -22,20 +33,131 @@
 @use 'pages/tarifs';
 @use 'pages/shooting';
 
+// Responsive design
 @use 'responsive/tablet';
 @use 'responsive/mobile';
 
+/* ==========================================================================
+   CSS Custom Properties (Design Tokens)
+   ========================================================================== */
 :root {
+  // Colors
   --color-bg: #252422;
   --color-bg-secondary: #403D39;
   --color-accent: #EB2828;
   --color-tertiary: #CCC5B9;
   --color-text: #FFFCF2;
-  --font-text: "Satoshi Variable", sans-serif;
-  --font-size-base: 1.25rem;
+  --color-text-muted: rgba(255, 252, 242, 0.8);
+  --color-border: rgba(255, 252, 242, 0.1);
+  
+  // Typography
+  --font-primary: "Satoshi Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-secondary: "Flaviotte", serif;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  // Spacing
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  // Layout
   --max-width: 1200px;
+  --container-padding: 1rem;
+  --border-radius: 0.25rem;
+  --border-radius-lg: 0.5rem;
+  
+  // Transitions
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  // Z-index scale
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
 }
 
+/* ==========================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+@media (prefers-contrast: high) {
+  :root {
+    --color-bg: #000000;
+    --color-text: #ffffff;
+    --color-accent: #ff0000;
+    --color-border: #ffffff;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Support
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Focus Management
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-accent);
+  color: var(--color-text);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  z-index: var(--z-tooltip);
+  transition: top var(--transition-normal);
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ==========================================================================
+   Screen Reader Only
+   ========================================================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Background Image Optimization
+   ========================================================================== */
 .bg-main {
   position: fixed;
   inset: 0;
@@ -43,5 +165,41 @@
   height: 100vh;
   z-index: 0;
   background: url('../images/ui/Hero-bg.webp') center center / cover no-repeat;
-  pointer-events: none; // pour ne pas gêner les interactions
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   Image Optimization
+   ========================================================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+@media print {
+  .nav__burger,
+  .nav__mobile-overlay,
+  .carousel-arrow,
+  .footer__social {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+  
+  .hero__title {
+    color: black !important;
+  }
 } 
