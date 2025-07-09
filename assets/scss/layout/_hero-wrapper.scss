@@ -27,6 +27,11 @@
     will-change: filter;
     transform: translateZ(0);
     backface-visibility: hidden;
+    
+    // Désactiver l'effet de flou en mobile
+    @media (max-width: $breakpoint-md) {
+      filter: none;
+    }
   }
 
   .blur-effect {
@@ -44,6 +49,11 @@
     transform: translateZ(0);
     backface-visibility: hidden;
     pointer-events: none;
+    
+    // Désactiver l'effet de flou en mobile
+    @media (max-width: $breakpoint-md) {
+      filter: none;
+    }
   }
 
   &::before {

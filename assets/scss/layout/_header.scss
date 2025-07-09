@@ -4,6 +4,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center; // Centrer le contenu du header
   min-height: 6rem;
   border-bottom: 1px solid $color-tertiary;
   padding: 0 $container-padding;
@@ -26,14 +27,14 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; // Centrer la navigation
   height: 100%;
   z-index: 99998;
 
   &__links {
     @include flex(row, center, center);
     gap: $spacing-3;
-    width: 100%;
+    width: auto; // Largeur automatique au lieu de 100%
     
     @media (max-width: $breakpoint-md) {
       gap: $spacing-2;

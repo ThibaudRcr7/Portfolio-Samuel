@@ -11,21 +11,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="page-project">
-    <!-- Menu mobile overlay -->
-    <div class="nav__mobile-overlay">
+    <!-- Mobile menu overlay -->
+    <div class="nav__mobile-overlay" id="mobile-menu" aria-hidden="true">
         <div class="nav__mobile-content">
-            <ul class="nav__links nav__links--mobile">
-                <li class="nav__item"><a href="../index.html" class="nav__link">Accueil</a></li>
-                <li class="nav__item"><a href="../pages/a-propos.html" class="nav__link">À propos</a></li>
-                <li class="nav__item"><a href="../index.html#menu-fullpage" class="nav__link nav__link--active">Projets</a></li>
-                <li class="nav__item"><a href="../pages/contact.html" class="nav__link">Contact</a></li>
-            </ul>
+            <nav aria-label="Menu mobile">
+                <ul class="nav__links nav__links--mobile">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Accueil</a></li>
+                    <li class="nav__item"><a href="../pages/a-propos.html" class="nav__link">À propos</a></li>
+                    <li class="nav__item"><a href="../index.html#menu-fullpage" class="nav__link nav__link--active" aria-current="page">Projets</a></li>
+                    <li class="nav__item"><a href="../pages/tarifs.html" class="nav__link">Tarifs</a></li>
+                    <li class="nav__item"><a href="../pages/contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>    <div class="grid-container">
+    </div>
+    
+    <!-- Mobile burger button - outside grid container -->
+    <button class="nav__burger nav__burger--mobile" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav__burger-text">menu</span>
+        <svg class="nav__burger-icon nav__burger-icon--menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h16"/>
+            <path d="M4 18h16"/>
+            <path d="M4 6h16"/>
+        </svg>
+        <svg class="nav__burger-icon nav__burger-icon--close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+        </svg>
+    </button>
+    
+    <div class="grid-container">
         <header class="header">
-                        <!-- Menu burger mobile - à l'intérieur du header -->
-            <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <button class="nav__burger nav__burger--desktop" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
                 <span class="nav__burger-text">menu</span>
+                <svg class="nav__burger-icon nav__burger-icon--menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                    <path d="M4 6h16"/>
+                </svg>
+                <svg class="nav__burger-icon nav__burger-icon--close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                </svg>
             </button>
             
 <nav class="nav" aria-label="Navigation principale">
@@ -173,53 +200,10 @@
         </div>
     </footer>
     </div>
-    <script src="../assets/scripts/scrollable-gallery.js"></script>
-
-    <script src="../assets/scripts/carousel.js"></script>
-    <script src="../assets/scripts/gallery.js"></script>
-    
-    <!-- Script pour le menu mobile -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.querySelector('.nav__burger');
-            const overlay = document.querySelector('.nav__mobile-overlay');
-            const body = document.body;
-            
-            function toggleMenu() {
-                const isOpen = burger.getAttribute('aria-expanded') === 'true';
-                
-                if (isOpen) {
-                    // Fermer le menu
-                    overlay.classList.remove('nav__mobile-overlay--active');
-                    burger.setAttribute('aria-expanded', 'false');
-                    body.style.overflow = '';
-                } else {
-                    // Ouvrir le menu
-                    overlay.classList.add('nav__mobile-overlay--active');
-                    burger.setAttribute('aria-expanded', 'true');
-                    body.style.overflow = 'hidden';
-                }
-            }
-            
-            burger.addEventListener('click', toggleMenu);
-            
-            // Fermer en cliquant sur l'overlay
-            overlay.addEventListener('click', function(e) {
-                if (e.target === overlay) {
-                    toggleMenu();
-                }
-            });
-            
-            // Fermer en cliquant sur un lien
-            const mobileLinks = overlay.querySelectorAll('.nav__link');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (burger.getAttribute('aria-expanded') === 'true') {
-                        toggleMenu();
-                    }
-                });
-            });
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="../assets/scripts/scrollable-gallery.js" defer></script>
+    <script src="../assets/scripts/carousel.js" defer></script>
+    <script src="../assets/scripts/gallery.js" defer></script>
+    <script src="../assets/scripts/mobile-menu.js" defer></script>
 </body>
 </html>

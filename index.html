@@ -65,13 +65,36 @@
         </div>
     </div>
     
+    <!-- Mobile burger button - outside grid container -->
+    <button class="nav__burger nav__burger--mobile" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav__burger-text">menu</span>
+        <svg class="nav__burger-icon nav__burger-icon--menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h16"/>
+            <path d="M4 18h16"/>
+            <path d="M4 6h16"/>
+        </svg>
+        <svg class="nav__burger-icon nav__burger-icon--close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+        </svg>
+    </button>
+    
     <div class="grid-container">
         <!-- Hero section -->
         <div class="hero-wrapper">
             <div class="placeholder-bg"></div>
             <header class="header header--home">
-                <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                <button class="nav__burger nav__burger--desktop" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
                     <span class="nav__burger-text">menu</span>
+                    <svg class="nav__burger-icon nav__burger-icon--menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 12h16"/>
+                        <path d="M4 18h16"/>
+                        <path d="M4 6h16"/>
+                    </svg>
+                    <svg class="nav__burger-icon nav__burger-icon--close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
                 </button>
                 
                 <nav class="nav" aria-label="Navigation principale">
@@ -151,17 +174,6 @@
             <!-- Categories section -->
             <section class="menu-fullpage" id="menu-fullpage" aria-label="Catégories de projets">
                 <div class="container">
-                    <article class="category-item" data-category="portraits">
-                        <h2 class="category-item__title">PORTRAITS</h2>
-                        <div class="category-item__images">
-                            <img src="assets/images/photos/portraits/Marine/Shooting-Marine (1).webp" alt="Portraits - Image 1" class="category-item__image category-item__image--1" loading="lazy">
-                            <img src="assets/images/photos/portraits/Marion/Shooting-Marion (1).webp" alt="Portraits - Image 2" class="category-item__image category-item__image--2" loading="lazy">
-                        </div>
-                        <a href="pages/projets-portraits.html" class="category-item__link" aria-label="Voir tous les portraits">
-                            <span class="sr-only">Voir tous les portraits</span>
-                        </a>
-                    </article>
-                    
                     <article class="category-item" data-category="mariages">
                         <h2 class="category-item__title">MARIAGES</h2>
                         <div class="category-item__images">
@@ -170,6 +182,17 @@
                         </div>
                         <a href="pages/projets-mariages.html" class="category-item__link" aria-label="Voir tous les mariages">
                             <span class="sr-only">Voir tous les mariages</span>
+                        </a>
+                    </article>
+                    
+                    <article class="category-item" data-category="portraits">
+                        <h2 class="category-item__title">PORTRAITS</h2>
+                        <div class="category-item__images">
+                            <img src="assets/images/photos/portraits/Marine/Shooting-Marine (1).webp" alt="Portraits - Image 1" class="category-item__image category-item__image--1" loading="lazy">
+                            <img src="assets/images/photos/portraits/Marion/Shooting-Marion (1).webp" alt="Portraits - Image 2" class="category-item__image category-item__image--2" loading="lazy">
+                        </div>
+                        <a href="pages/projets-portraits.html" class="category-item__link" aria-label="Voir tous les portraits">
+                            <span class="sr-only">Voir tous les portraits</span>
                         </a>
                     </article>
                     

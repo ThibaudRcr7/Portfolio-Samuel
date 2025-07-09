@@ -37,16 +37,16 @@ class ProjectSelector {
         // Configuration pour la page principale de sélection de catégories
         this.projects = [
             {
-                id: 'portraits',
-                title: 'PORTRAITS',
-                description: 'Capturer l\'essence et l\'émotion de chaque personne à travers des portraits authentiques et artistiques. Chaque regard raconte une histoire unique.',
-                image: '../assets/images/photos/portraits/placeholder-portrait.jpg'
-            },
-            {
                 id: 'mariages',
                 title: 'MARIAGES',
                 description: 'Immortaliser les moments les plus précieux de votre journée spéciale. Des émotions pures et des souvenirs inoubliables capturés avec passion.',
                 image: '../assets/images/photos/mariages/placeholder-mariage.jpg'
+            },
+            {
+                id: 'portraits',
+                title: 'PORTRAITS',
+                description: 'Capturer l\'essence et l\'émotion de chaque personne à travers des portraits authentiques et artistiques. Chaque regard raconte une histoire unique.',
+                image: '../assets/images/photos/portraits/placeholder-portrait.jpg'
             },
             {
                 id: 'evenements',

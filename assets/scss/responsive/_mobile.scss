@@ -19,6 +19,7 @@
       align-items: center;
       gap: $spacing-2;
     }
+    // Les styles du bouton burger sont maintenant gérés dans _navigation.scss
   }
 
   // Hero
@@ -46,6 +47,13 @@
     .placeholder-bg {
       @media (max-width: $breakpoint-md) {
         background-attachment: scroll; // Désactive le parallax sur mobile
+        filter: none !important; // Supprime complètement l'effet de flou
+      }
+    }
+    
+    .blur-effect {
+      @media (max-width: $breakpoint-md) {
+        filter: none !important; // Supprime complètement l'effet de flou
       }
     }
   }
@@ -117,6 +125,24 @@
   
   .text-large {
     font-size: 1.125rem;
+  }
+  
+  // Inverser l'ordre des sections en mobile
+  #main-content {
+    display: flex;
+    flex-direction: column;
+    
+    .gallery-section {
+      order: 2; // La galerie passe en deuxième position
+    }
+    
+    .carousel-section {
+      order: 1; // Le carousel passe en première position
+    }
+    
+    .menu-fullpage {
+      order: 3; // Les catégories restent en troisième position
+    }
   }
   
   // Marges et paddings optimisés

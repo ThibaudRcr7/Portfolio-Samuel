@@ -15,7 +15,7 @@
     "lint:css": "stylelint assets/scss/**/*.scss",
     "lint:html": "html-validate *.html pages/*.html projets/*.html",
     "test": "npm run lint:css && npm run lint:html",
-    "clean": "rm -rf assets/css/*.map node_modules/.cache",
+    "clean": "if exist assets\\css\\*.map del assets\\css\\*.map && if exist node_modules\\.cache rmdir /s /q node_modules\\.cache",
     "prebuild": "npm run clean"
   },
   "keywords": [
@@ -37,11 +37,11 @@
   "homepage": "https://tosanproductions.com",
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "html-validate": "^9.7.1",
     "live-server": "^1.2.2",
     "sass": "^1.71.1",
     "stylelint": "^16.2.1",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "html-validate": "^9.15.0"
+    "stylelint-config-standard-scss": "^13.1.0"
   },
   "engines": {
     "node": ">=18.0.0",
