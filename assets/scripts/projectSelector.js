@@ -79,7 +79,7 @@ class ProjectSelector {
         if (path.includes('projets-portraits')) {
             category = 'portrait';
             categoryName = 'PORTRAIT';
-            imagePath = '../assets/images/photos/portraits/placeholder-portrait.jpg';
+            imagePath = '../assets/images/photos/portraits/Thibaud/Shooting-Thibaud (1).webp';
             description = 'Capturer l\'essence et l\'émotion de chaque personne à travers des portraits authentiques et artistiques. Chaque regard raconte une histoire unique.';
             
             // Projets spécifiques pour les portraits
@@ -87,118 +87,107 @@ class ProjectSelector {
                 {
                     id: 'portrait-1',
                     title: 'SHOOTING MARINE',
-                    description: 'Ce shooting portrait de Marine capture l\'essence même de l\'émotion humaine. À travers un jeu subtil de lumière et d\'ombre, chaque détail du visage raconte une histoire unique.',
-                    image: '../assets/images/photos/portraits/Marine/Shooting-Marine (3).webp'
+                    image: '../assets/images/photos/portraits/Marine/Shooting-Marine (1).webp',
+                    description: 'Portrait artistique de Marine'
                 },
                 {
                     id: 'portrait-2',
                     title: 'SHOOTING MARION',
-                    description: 'Ce shooting portrait de Marion capture l\'essence même de l\'émotion humaine. À travers un jeu subtil de lumière et d\'ombre, chaque détail du visage raconte une histoire unique.',
-                    image: '../assets/images/photos/portraits/Marion/Shooting-Marion (10).webp'
+                    image: '../assets/images/photos/portraits/Marion/Shooting-Marion (1).webp',
+                    description: 'Portrait artistique de Marion'
                 },
                 {
                     id: 'portrait-3',
                     title: 'SHOOTING THIBAUD',
-                    description: 'Ce shooting portrait de Thibaud capture l\'essence même de l\'émotion humaine. À travers un jeu subtil de lumière et d\'ombre, chaque détail du visage raconte une histoire unique.',
-                    image: '../assets/images/photos/portraits/Thibaud/Shooting-Thibaud (2).webp'
+                    image: '../assets/images/photos/portraits/Thibaud/Shooting-Thibaud (1).webp',
+                    description: 'Portrait artistique de Thibaud'
                 }
             ];
         } else if (path.includes('projets-mariages')) {
             category = 'mariage';
             categoryName = 'MARIAGE';
-            imagePath = '../assets/images/photos/mariages/placeholder-mariage.jpg';
-            description = 'Immortaliser les moments les plus précieux de votre journée spéciale. Des émotions pures et des souvenirs inoubliables capturés avec passion.';
+            imagePath = '../assets/images/photos/mariages/Celine/Celine (17).webp';
+            description = 'Immortaliser les moments les plus précieux de votre journée de mariage avec élégance et sensibilité.';
             
             // Projets spécifiques pour les mariages
             return [
                 {
                     id: 'mariage-1',
                     title: 'CERISE & NICOLAS',
-                    description: 'Un mariage empreint d\'émotion et d\'authenticité. Chaque instant de cette journée spéciale a été capturé avec passion, des préparatifs aux premières danses.',
-                    image: '../assets/images/photos/mariages/Cerise/Cerise (14).JPG'
+                    image: '../assets/images/photos/mariages/Cerise/Cerise (14).webp',
+                    description: 'Mariage de Cerise et Nicolas'
                 },
                 {
                     id: 'mariage-2',
                     title: 'CÉLINE & SÉBASTIEN',
-                    description: 'Un mariage élégant et romantique capturé avec sensibilité. Chaque instant de cette union a été immortalisé pour créer des souvenirs éternels.',
-                    image: '../assets/images/photos/mariages/Celine/Celine (7).JPG'
+                    image: '../assets/images/photos/mariages/Celine/Celine (7).webp',
+                    description: 'Mariage de Céline et Sébastien'
                 },
                 {
                     id: 'mariage-3',
                     title: 'DINO & GIOVANNA',
-                    description: 'Immortaliser les moments les plus précieux de votre journée spéciale. Des émotions pures et des souvenirs inoubliables capturés avec passion.',
-                    image: '../assets/images/photos/mariages/placeholder-mariage.jpg'
+                    image: '../assets/images/photos/mariages/Celine/Celine (17).webp',
+                    description: 'Mariage de Dino et Giovanna'
                 }
             ];
         } else if (path.includes('projets-evenements')) {
             category = 'evenement';
             categoryName = 'ÉVÉNEMENT';
-            imagePath = '../assets/images/photos/events/placeholder-evenement.jpg';
-            description = 'Documenter vos événements avec professionnalisme. De la préparation aux moments forts, chaque détail compte.';
+            imagePath = '../assets/images/photos/events/Concert/concert (1).webp';
+            description = 'Capturer l\'énergie et l\'émotion de vos événements spéciaux avec dynamisme et créativité.';
             
             // Projets spécifiques pour les événements
             return [
                 {
                     id: 'evenement-1',
                     title: 'CONCERT',
-                    description: 'Capturer l\'énergie et l\'émotion des performances live. Des moments de pure magie musicale immortalisés avec passion.',
-                    image: '../assets/images/photos/events/Concert/concert (1).JPG'
+                    image: '../assets/images/photos/events/Concert/concert (1).webp',
+                    description: 'Shooting de concert'
                 },
                 {
                     id: 'evenement-2',
                     title: 'CARNAVAL',
-                    description: 'Un carnaval coloré et festif capturé dans toute sa splendeur. Des costumes magnifiques et des moments de joie pure.',
-                    image: '../assets/images/photos/events/Carnaval/Carnaval (4).JPG'
+                    image: '../assets/images/photos/events/Carnaval/Carnaval (4).webp',
+                    description: 'Shooting de carnaval'
                 },
                 {
                     id: 'evenement-3',
                     title: 'ANNIVERSAIRE',
-                    description: 'Célébrer les moments de joie et de partage. Des anniversaires mémorables immortalisés avec authenticité.',
-                    image: '../assets/images/photos/events/Anniversaire/Anniversaire (3).JPG'
+                    image: '../assets/images/photos/events/Anniversaire/Anniversaire (3).webp',
+                    description: 'Shooting d\'anniversaire'
                 }
             ];
         } else if (path.includes('projets-commercial')) {
             category = 'commercial';
             categoryName = 'COMMERCIAL';
-            imagePath = '../assets/images/photos/commercials/placeholder-commercial.jpg';
-            description = 'Créer des images percutantes pour votre communication. Des visuels qui parlent et qui vendent votre vision.';
+            imagePath = '../assets/images/photos/commercials/gc-barber/Gc-barbershop (4).webp';
+            description = 'Mettre en valeur votre entreprise avec des images professionnelles qui reflètent votre identité et votre excellence.';
             
-            // Projets spécifiques pour les projets commerciaux
+            // Projets spécifiques pour les commerciaux
             return [
                 {
                     id: 'commercial-1',
                     title: 'GC BARBERSHOP',
-                    description: 'Des visuels professionnels qui capturent l\'essence et l\'atmosphère unique de ce salon de coiffure. Des images qui parlent de qualité et de style.',
-                    image: '../assets/images/photos/commercials/gc-barber/Gc-barbershop (4).JPG'
+                    image: '../assets/images/photos/commercials/gc-barber/Gc-barbershop (4).webp',
+                    description: 'Shooting commercial pour GC Barbershop'
                 },
                 {
                     id: 'commercial-2',
-                    title: 'RESTAURANT',
-                    description: 'Créer des images percutantes pour votre communication. Des visuels qui parlent et qui vendent votre vision.',
-                    image: '../assets/images/photos/commercials/gusto/gusto (8).JPG'
+                    title: 'GUSTO RISTORANTE',
+                    image: '../assets/images/photos/commercials/gusto/gusto (8).webp',
+                    description: 'Shooting commercial pour Gusto Ristorante'
                 },
                 {
                     id: 'commercial-3',
-                    title: 'LA VITA É PIZZA',
-                    description: 'Un shooting commercial pour le restaurant La Vita, capturant l\'ambiance chaleureuse et l\'art culinaire de cet établissement.',
-                    image: '../assets/images/photos/commercials/la-vita/la-vita (6).JPEG'
+                    title: 'LA VITA',
+                    image: '../assets/images/photos/commercials/la-vita/la-vita (1).webp',
+                    description: 'Shooting commercial pour La Vita'
                 }
             ];
         }
 
-        // Générer les projets pour les autres catégories
-        const projects = [];
-        const maxProjects = 3; // Toutes les catégories ont maintenant 3 projets
-        for (let i = 1; i <= maxProjects; i++) {
-            projects.push({
-                id: `${category}-${i}`,
-                title: `${categoryName} ${i}`,
-                description: description,
-                image: imagePath
-            });
-        }
-
-        return projects;
+        // Retour par défaut si aucune catégorie n'est détectée
+        return [];
     }
 
     init() {
