@@ -1,0 +1,144 @@
+@use '../abstracts' as *;
+
+// Styles de navigation supplémentaires à venir 
+
+// Menu burger
+.nav__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 99999;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    
+    @media (max-width: $breakpoint-md) {
+        display: flex;
+    }
+    
+    // Fond transparent quand le menu est ouvert
+    &[aria-expanded="true"] {
+        background-color: rgba($color-bg, 0.9);
+        border-radius: 4px;
+        padding: 0.25rem;
+    }
+}
+
+.nav__burger-line {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: $color-text;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+// Animation du burger
+.nav__burger[aria-expanded="true"] .nav__burger-line {
+    &:first-child {
+        transform: rotate(45deg);
+    }
+    
+    &:nth-child(2) {
+        opacity: 0;
+    }
+    
+    &:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+}
+
+// Overlay mobile
+.nav__mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-bg;
+    z-index: 99998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    
+    @media (min-width: 769px) {
+        display: none;
+    }
+    
+    &--active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.nav__mobile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    position: relative;
+    z-index: 99999;
+}
+
+// Navigation desktop
+.nav__links--desktop {
+    @media (max-width: $breakpoint-md) {
+        display: none;
+    }
+}
+
+// Navigation mobile
+.nav__links--mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 100000;
+    
+    @media (min-width: 769px) {
+        display: none;
+    }
+}
+
+.nav__item {
+    font-family: $font-primary;
+}
+
+.nav__link {
+    color: $color-text;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: $font-size-base;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.5rem 0;
+    
+    &:hover {
+        color: $color-accent;
+    }
+    
+    &--active {
+        color: $color-accent;
+        font-weight: 700;
+    }
+    
+    // Styles spécifiques pour mobile
+    .nav__links--mobile & {
+        font-size: 1.5rem;
+        padding: 1rem 0;
+        text-align: center;
+    }
+} 

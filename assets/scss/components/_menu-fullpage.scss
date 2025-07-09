@@ -1,0 +1,224 @@
+@use '../abstracts/mixins' as *;
+
+.menu-fullpage {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    z-index: 1;
+    overflow: visible;
+    
+    @media (max-width: $breakpoint-md) {
+        min-height: auto;
+    }
+
+    // S'assurer que le conteneur n'a pas d'overflow hidden
+    .container {
+        overflow: visible;
+        max-width: none;
+        padding: 0;
+        
+        @media (max-width: $breakpoint-md) {
+            padding: 0;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+    }
+
+    // S'assurer que les éléments parents permettent l'overflow
+    body, html {
+        overflow-x: visible;
+    }
+
+    .category-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 25vh;
+        position: relative;
+        border-bottom: 1px solid $color-tertiary;
+        overflow: visible;
+        transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        will-change: transform, background-color;
+
+        &:last-child {
+            border-bottom: none;
+        }
+        
+        @media (max-width: $breakpoint-md) {
+            height: auto;
+            min-height: 100px;
+            padding: 2rem 0;
+        }
+
+        &__title {
+            font-size: 96px;
+            font-family: $font-primary;
+            font-weight: $font-weight-bold;
+            color: $color-text;
+            position: relative;
+            z-index: 2;
+            padding-left: $spacing-3;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, color;
+            
+            @media (max-width: $breakpoint-md) {
+                font-size: 2rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                line-height: 1.3;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+        }
+
+        &__images {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            overflow: visible;
+            
+            @media (max-width: $breakpoint-md) {
+                display: none;
+            }
+        }
+
+        &__image {
+            position: absolute;
+            width: 250px;
+            height: 350px;
+            opacity: 0;
+            will-change: transform, opacity;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: 
+                opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            &--1 {
+                top: 50%;
+                right: 45%;
+                transform: translate3d(50%, -50%, 0) rotate(5deg) scale(0.95);
+                z-index: 10000;
+                transition-delay: 0.1s;
+            }
+
+            &--2 {
+                top: 50%;
+                right: 60%;
+                transform: translate3d(50%, -50%, 0) rotate(-5deg) scale(0.95);
+                z-index: 10001;
+                transition-delay: 0.2s;
+            }
+        }
+
+        &__link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            text-decoration: none;
+            color: transparent;
+        }
+
+        &:hover {
+            background-color: $color-bg-secondary;
+
+            .category-item__title {
+                color: $color-accent;
+                transform: translateX(10px);
+                
+                @media (max-width: $breakpoint-md) {
+                    transform: translateX(5px);
+                }
+            }
+
+            .category-item__image {
+                opacity: 1;
+
+                &--1 {
+                    transform: translate3d(50%, -50%, 0) rotate(10deg) scale(1);
+                }
+
+                &--2 {
+                    transform: translate3d(50%, -50%, 0) rotate(15deg) scale(1);
+                }
+            }
+        }
+        
+        // Effet de toucher pour mobile
+        @media (max-width: $breakpoint-md) {
+            &:active {
+                background-color: $color-bg-secondary;
+                
+                .category-item__title {
+                    color: $color-accent;
+                    transform: translateX(5px);
+                }
+            }
+        }
+    }
+}
+
+// Media Queries avec optimisations
+@include respond-to(lg) {
+    .menu-fullpage {
+        .category-item {
+            &__title {
+                font-size: 72px;
+                padding-left: $spacing-2;
+            }
+
+            &__image {
+                width: 225px;
+                height: 315px;
+            }
+        }
+    }
+}
+
+@include respond-to(md) {
+    .menu-fullpage {
+        .category-item {
+            &__title {
+                font-size: 48px;
+                padding-left: $spacing-2;
+            }
+
+            &__image {
+                width: 200px;
+                height: 280px;
+            }
+        }
+    }
+}
+
+@include respond-to(sm) {
+    .menu-fullpage {
+        .category-item {
+            &__title {
+                font-size: 36px;
+                padding-left: $spacing-1;
+            }
+
+            &__image {
+                width: 175px;
+                height: 245px;
+            }
+        }
+    }
+} 

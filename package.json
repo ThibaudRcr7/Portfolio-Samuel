@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-photographe",
+  "version": "1.0.0",
+  "description": "Portfolio de photographe professionnel",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/main.scss:assets/css/main.css --watch --style compressed",
+    "sass:build": "sass assets/scss/main.scss:assets/css/main.css --style compressed",
+    "sass:dev": "sass assets/scss/main.scss:assets/css/main.css --watch --style expanded --source-map",
+    "dev": "live-server --port=8080 --host=localhost --open=index.html",
+    "start": "concurrently \"npm run sass:dev\" \"npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.2",
+    "sass": "^1.71.1"
+  }
+}

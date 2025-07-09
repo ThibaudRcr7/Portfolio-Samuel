@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+@include respond-to(md) {
+  .nav {
+    &__links {
+      gap: $spacing-4;
+    }
+  }
+
+  .hero {
+    &__title {
+      font-size: $font-size-title-md;
+    }
+  }
+} 

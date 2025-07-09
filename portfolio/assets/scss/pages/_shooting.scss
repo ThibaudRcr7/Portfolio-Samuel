@@ -1,0 +1,97 @@
+@use '../abstracts' as *;
+
+// Shooting Hero Section
+.shooting-hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: $section-padding 0;
+    
+    &__grid {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        
+        @media (max-width: $breakpoint-md) {
+            flex-direction: column;
+            gap: $spacing-3;
+        }
+    }
+    
+    &__content {
+        margin-left: 2rem;
+        flex: 1;
+        
+        @media (max-width: $breakpoint-md) {
+            max-width: 100%;
+            order: 1;
+        }
+    }
+    
+    &__title {
+        font-family: $font-primary;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-title-lg;
+        color: $color-text;
+        margin: 0 0 $spacing-2 0;
+        line-height: 1.1;
+        
+        @media (max-width: $breakpoint-lg) {
+            font-size: $font-size-title-md;
+        }
+        
+        @media (max-width: $breakpoint-md) {
+            font-size: $font-size-title-sm;
+        }
+    }
+    
+    &__separator {
+        display: block;
+        width: 75%;
+        height: 2px;
+        background-color: $color-tertiary;
+        margin: 0 0 $spacing-3 0;
+        content: '';
+    }
+    
+    &__description {
+        font-family: $font-primary;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-base;
+        color: $color-text;
+        line-height: 1.6;
+        margin: 0;
+        
+        @media (max-width: $breakpoint-md) {
+            font-size: $font-size-small;
+        }
+    }
+    
+    &__visual {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 50%;
+        
+        @media (max-width: $breakpoint-md) {
+            max-width: 100%;
+            order: 2;
+        }
+    }
+    
+    &__image {
+        max-height: 70vh;
+        width: auto;
+        object-fit: cover;
+        border-radius: 4px;
+        
+        @media (max-width: $breakpoint-md) {
+            max-height: 50vh;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// (plus de bordure verticale entre les colonnes) 

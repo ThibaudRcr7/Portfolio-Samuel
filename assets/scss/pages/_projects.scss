@@ -1,0 +1,675 @@
+@use '../abstracts' as *;
+
+// Styles spécifiques à la page Projets à venir 
+
+// Style spécifique pour le header de la page Projets
+.page-projects {
+    .header {
+        background-color: $color-bg;
+        
+        // Supprime l'héritage du background de la page d'accueil
+        &::before {
+            display: none;
+        }
+    }
+
+    // Supprime tout héritage du hero-wrapper
+    .hero-wrapper {
+        display: none;
+    }
+}
+
+// Style spécifique pour les pages de catégories de projets (projets-portraits, projets-mariages, etc.)
+.page-projects-portraits,
+.page-projects-mariages,
+.page-projects-evenements,
+.page-projects-commercial {
+    .projets-section > .container {
+        max-width: none;
+        /* padding: 0 clamp($spacing-1, 5vw, $spacing-3); */ // Commenté comme demandé
+    }
+}
+
+// Section principale des projets
+.projets-section {
+    min-height: 100vh;
+    background-color: $color-bg;
+    color: $color-text;
+    position: relative;
+
+    & > .container {
+        max-width: none;
+        /* padding: 0 clamp($spacing-1, 5vw, $spacing-3); */ // Commenté comme demandé
+        height: 100vh;
+        display: flex;
+        align-items: stretch;
+    }
+}
+
+// Grille principale - deux colonnes
+.projets-grid {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-width: 0;
+
+    // Ligne verticale de séparation entre les colonnes
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background-color: $color-tertiary;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+}
+
+// Colonne gauche - Menu sélecteur
+.projets-menu {
+    width: 50%;
+    min-width: 0;
+    max-width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: $color-bg;
+
+    &__container {
+        flex: 1;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        padding: 50vh 0 50vh 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        
+        // Masquer complètement la scrollbar
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE/Edge
+        
+        &::-webkit-scrollbar {
+            display: none; // Chrome/Safari/Edge
+        }
+    }
+}
+
+// Éléments du menu sélecteur - Titres massifs
+.project-title {
+    font-family: $font-primary;
+    font-size: clamp(4rem, 6vw, 8rem);
+    font-weight: $font-weight-regular;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    padding: $spacing-3 0; // Padding vertical uniquement, le horizontal est géré par le container
+    cursor: pointer; // Rendre cliquable
+    transition: all 0.3s ease;
+    border: none;
+    border-bottom: 1px solid $color-tertiary; // Séparation discrète
+    position: relative;
+    min-height: 25vh; // Hauteur pour que 3-4 éléments soient visibles
+    display: flex;
+    align-items: center;
+    justify-content: center; // Centrage horizontal des titres
+    text-align: center;
+    scroll-snap-align: center;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    width: 100%; // Assure que l'élément prend toute la largeur
+
+    span {
+        display: block;
+        line-height: 1.1;
+        letter-spacing: 0.05em;
+    }
+
+    // État actif - élément centré
+    &.active {
+        color: $color-accent;
+        transform: scale(1.02);
+        opacity: 1 !important; // Opacité pleine pour l'élément actif avec priorité
+    }
+    
+    // Dernier élément sans bordure
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+// Colonne droite - Aperçu du projet
+.projets-preview {
+    width: 50%;
+    min-width: 0;
+    max-width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: $color-bg;
+    cursor: pointer; // Ajouter le curseur pointer pour indiquer que c'est cliquable
+
+    &__container {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    &__overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        padding: $spacing-4;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+    }
+
+    &__content {
+        color: $color-text;
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $font-size-title-sm;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        margin: 0 0 $spacing-2 0;
+        letter-spacing: 0.1em;
+    }
+
+    &__description {
+        font-family: $font-primary;
+        font-size: $font-size-small;
+        line-height: 1.6;
+        margin: 0;
+        opacity: 0.9;
+        max-width: 90%;
+    }
+}
+
+// Animation pour le changement de contenu
+.projets-preview__image.fade-out {
+    .projets-preview__img {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+}
+
+.projets-preview__image.fade-in {
+    .projets-preview__img {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Media Queries pour tablettes
+@include respond-to(lg) {
+    .projets-grid {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .projets-menu,
+    .projets-preview {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .projets-menu {
+        order: 1;
+        min-height: 50vh;
+        height: auto;
+
+        &__container {
+            flex-direction: column;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            padding: 25vh 0 25vh 0;
+            gap: 0;
+            scroll-snap-type: y mandatory;
+            height: 50vh;
+            
+            // Masquer complètement la scrollbar
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .project-title {
+        min-height: 20vh;
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        scroll-snap-align: center;
+        padding: $spacing-2 0;
+
+        &.active {
+            font-size: clamp(2rem, 5.5vw, 3.2rem);
+        }
+    }
+
+    .projets-preview {
+        order: 2;
+        min-height: 50vh;
+
+        &__overlay {
+            padding: $spacing-3;
+        }
+
+        &__title {
+            font-size: $font-size-base;
+        }
+
+        &__description {
+            font-size: $font-size-small;
+        }
+    }
+}
+
+// Styles pour les pages de projets individuels
+.page-project {
+    .header {
+        
+        &::before {
+            display: none;
+        }
+    }
+
+    .hero-wrapper {
+        display: none;
+    }
+}
+
+// Section 1 : Présentation du projet
+.project-presentation {
+    min-height: 100vh;
+    background-color: $color-bg;
+    color: $color-text;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $color-tertiary; // Ajouter bordure en bas
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-5;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-3;
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: clamp(2rem, 6vw, 4rem);
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.1;
+        letter-spacing: 0.05em;
+        color: $color-text;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__separator {
+        width: 100%;
+        height: 1px;
+        background-color: $color-tertiary;
+        margin: 0;
+    }
+
+    &__description {
+        font-family: $font-primary;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        line-height: 1.7;
+        color: $color-text;
+        margin: 0;
+        text-align: justify;
+        hyphens: auto;
+        word-wrap: break-word;
+    }
+
+    &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__img {
+        max-width: 100%;
+        max-height: 70vh;
+        width: auto;
+        height: auto;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+}
+
+// Section 2 : Galerie
+.project-gallery {
+    min-height: 100vh;
+    background-color: $color-bg;
+    color: $color-text;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $color-tertiary;
+
+    &__wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: clamp(.5rem, 5vw, 2rem);
+        padding-right: clamp(.5rem, 5vw, 2rem);
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    &__scroll {
+        display: flex;
+        gap: 0;
+        height: 100%;
+        width: 100%;
+        transition: transform 0.5s ease;
+    }
+
+    &__item {
+        flex: 0 0 auto;
+        width: 400px;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        border-radius: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    // Flèches de navigation
+    &__nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3rem;
+        height: 3rem;
+        background: rgba($color-bg, 0.8);
+        border: 1px solid $color-tertiary;
+        color: $color-text;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: $color-accent;
+            color: $color-bg;
+        }
+
+        &--prev {
+            left: 2rem;
+        }
+
+        &--next {
+            right: 2rem;
+        }
+
+        &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+
+    // Indicateurs de position
+    &__indicators {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.5rem;
+        z-index: 10;
+    }
+
+    &__indicator {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        background: rgba($color-tertiary, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.active {
+            background: $color-accent;
+        }
+
+        &:hover {
+            background: $color-tertiary;
+        }
+    }
+}
+
+@include respond-to(md) {
+    .project-presentation {
+        padding: $spacing-3 0;
+
+        &__grid {
+            gap: $spacing-3;
+        }
+
+        &__title {
+            font-family: $font-primary;
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            font-weight: $font-weight-bold;
+            text-align: center; // Centrer le titre en mobile
+        }
+
+        &__description {
+            font-size: 1rem;
+            line-height: 1.6;
+            padding-inline: 2rem; // Ajouter padding gauche et droite en mobile
+        }
+
+        &__img {
+            max-height: 40vh;
+        }
+    }
+
+    .project-gallery {
+        padding: $spacing-3 0;
+
+        &__wrapper {
+            height: 50vh;
+        }
+
+        &__item {
+            width: 250px;
+            height: 50vh;
+        }
+
+        &__nav {
+            width: 2rem;
+            height: 2rem;
+            font-size: 1rem;
+
+            &--prev {
+                left: 0.5rem;
+            }
+
+            &--next {
+                right: 0.5rem;
+            }
+        }
+
+        &__indicators {
+            bottom: 1rem;
+        }
+    }
+}
+
+// Media Queries pour les pages de projets individuels
+@include respond-to(lg) {
+    .project-presentation {
+        min-height: auto;
+        padding: $spacing-4 0;
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: $spacing-4;
+        }
+
+        &__title {
+            font-family: $font-primary;
+            font-size: clamp(1.75rem, 5vw, 3rem);
+            font-weight: $font-weight-bold;
+        }
+
+        &__description {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+        }
+
+        &__img {
+            max-height: 50vh;
+        }
+    }
+
+    .project-gallery {
+        min-height: auto;
+        padding: $spacing-4 0;
+
+        &__wrapper {
+            height: 60vh;
+        }
+
+        &__item {
+            width: 300px;
+            height: 60vh;
+        }
+
+        &__nav {
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.25rem;
+
+            &--prev {
+                left: 1rem;
+            }
+
+            &--next {
+                right: 1rem;
+            }
+        }
+    }
+}
+
+@include respond-to(md) {
+    .project-presentation {
+        padding: $spacing-3 0;
+
+        &__grid {
+            gap: $spacing-3;
+        }
+
+        &__title {
+            font-family: $font-primary;
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            font-weight: $font-weight-bold;
+            text-align: center; // Centrer le titre en mobile
+        }
+
+        &__description {
+            font-size: 1rem;
+            line-height: 1.6;
+            padding-inline: 2rem; // Ajouter padding gauche et droite en mobile
+        }
+
+        &__img {
+            max-height: 40vh;
+        }
+    }
+
+    .project-gallery {
+        padding: $spacing-3 0;
+
+        &__wrapper {
+            height: 50vh;
+        }
+
+        &__item {
+            width: 250px;
+            height: 50vh;
+        }
+
+        &__nav {
+            width: 2rem;
+            height: 2rem;
+            font-size: 1rem;
+
+            &--prev {
+                left: 0.5rem;
+            }
+
+            &--next {
+                right: 0.5rem;
+            }
+        }
+
+        &__indicators {
+            bottom: 1rem;
+        }
+    }
+} 

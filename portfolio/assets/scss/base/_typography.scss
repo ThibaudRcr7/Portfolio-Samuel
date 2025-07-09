@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+// Styles de base pour la typographie
+body {
+  @include body-text;
+}
+
+h1 {
+  @include heading-1;
+}
+
+h2 {
+  @include heading-2;
+}
+
+// Classes utilitaires pour la typographie
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-accent {
+  color: $color-accent;
+} 

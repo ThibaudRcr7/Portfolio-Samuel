@@ -1,0 +1,403 @@
+@use '../abstracts' as *;
+
+// Style spécifique pour le header de la page À propos
+.page-about {
+    .header {
+        
+        // Supprime l'héritage du background de la page d'accueil
+        &::before {
+            display: none;
+        }
+    }
+
+    // Supprime tout héritage du hero-wrapper
+    .hero-wrapper {
+        display: none;
+    }
+    
+    // Supprime les contraintes de largeur sur tous les containers
+    .container {
+        max-width: none;
+    }
+}
+
+// Styles spécifiques à la page À propos à venir 
+
+.about-section {
+    height: 100vh;
+    background-color: $color-bg;
+    color: $color-text;
+    position: relative;
+    display: block;
+
+    & > .container {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+    }
+}
+
+.about-grid {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-width: 0;
+}
+
+.about-left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-width: 0;
+    max-width: 50%;
+    height: 100%;
+    overflow: hidden;
+
+    &__top, &__bottom {
+        flex: 1 1 0;
+        min-height: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    &__top {
+        background: $color-bg;
+        border-bottom: 1px solid $color-tertiary;
+    }
+    &__bottom {
+        background: $color-bg-secondary;
+    }
+}
+
+.about-right {
+    width: 50%;
+    min-width: 0;
+    max-width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.about-identity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-bg;
+    padding: $spacing-4;
+    position: relative;
+
+    &__content {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.about-title {
+    font-family: $font-secondary;
+    font-size: $font-size-title-md;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap; // Empêche le retour à la ligne du titre
+}
+
+.about-separator {
+    width: 100%; // Prend toute la largeur du conteneur parent
+    height: 1px;
+    background-color: $color-tertiary;
+    margin: $spacing-2 0;
+}
+
+.about-subtitle {
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    color: $color-tertiary;
+    margin: 0;
+    text-align: center;
+}
+
+.about-quote {
+    background-color: $color-bg-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-4;
+
+    &__text {
+        font-family: $font-primary;
+        font-size: $font-size-base;
+        line-height: 1.6;
+        text-align: center;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.about-intro {
+    background-color: $color-bg-secondary;
+    padding: $spacing-4;
+    text-align: center;
+    position: relative;
+
+    // Bordure horizontale en bas
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: $color-tertiary;
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: $font-size-title-sm;
+        letter-spacing: 0.1em;
+        margin: 0;
+    }
+}
+
+.about-photo {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// Nouvelle section Portrait-Text
+.portrait-text-section {
+    min-height: 80vh;
+    background-color: $color-bg;
+    color: $color-text;
+    position: relative;
+    border-top: 1px solid $color-tertiary; // Bordure horizontale en haut
+
+    & > .container {
+        max-width: none;
+        padding: 0;
+        height: 100%;
+    }
+}
+
+.portrait-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    // Ligne verticale de séparation entre les colonnes
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background-color: $color-tertiary;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+}
+
+.portrait-text-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-4;
+    position: relative;
+    overflow: hidden;
+
+    &__img {
+        max-width: 100%;
+        max-height: 66.67vh; // 2/3 de la hauteur de la section
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        aspect-ratio: auto;
+    }
+}
+
+.portrait-text-content {
+    padding: $spacing-4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    &__paragraph {
+        @include body-text;
+        font-size: clamp($font-size-small, 2.5vw, $font-size-base);
+        line-height: 1.7;
+        margin: 0 0 $spacing-4 0;
+        text-align: justify;
+        hyphens: auto;
+        word-wrap: break-word;
+    }
+
+    &__separator {
+        width: 100%;
+        height: 1px;
+        background-color: $color-tertiary;
+        border: none;
+        margin: $spacing-4 0 0 0;
+        opacity: 0.6;
+    }
+}
+
+// Media Queries
+@include respond-to(md) {
+    .about-section {
+        height: auto;
+        min-height: 100vh;
+        & > .container {
+            flex-direction: column;
+            height: auto;
+        }
+    }
+    .about-grid {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        
+        &::after {
+            display: none;
+        }
+    }
+    .about-left, .about-right {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 50vh;
+    }
+    
+    .about-left {
+        flex-direction: column;
+        
+        &__top, &__bottom {
+            min-height: 50vh;
+        }
+    }
+    
+    .about-right {
+        flex-direction: column;
+    }
+    
+    .about-identity {
+        padding: $spacing-3;
+        min-height: 50vh;
+        background-color: transparent;
+        
+        &__content {
+            max-width: 100%;
+            padding: 0 $spacing-2;
+        }
+    }
+    .about-title {
+        font-size: clamp(2rem, 8vw, $font-size-title-sm);
+        white-space: normal; // Permet le retour à la ligne sur mobile
+        max-width: 90%; // Limite la largeur pour éviter de déborder
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    .about-quote {
+        padding: $spacing-1;
+        min-height: 50vh;
+        
+        &__text {
+            max-width: 100%;
+        }
+    }
+    .about-intro {
+        padding: $spacing-3;
+        min-height: 20vh;
+    }
+    .about-photo {
+        aspect-ratio: 3/4; // Maintient les proportions sur mobile
+        min-height: 30vh;
+    }
+
+    // Media queries pour la nouvelle section Portrait-Text
+    .portrait-text-section {
+        min-height: auto;
+        padding: $spacing-3 0;
+    }
+    
+    .portrait-text-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        min-height: auto;
+        gap: 0;
+        
+        &::after {
+            display: none;
+        }
+    }
+    
+    .portrait-text-image {
+        padding: $spacing-3;
+        min-height: 50vh;
+        
+        &__img {
+            max-height: 50vh;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    
+    .portrait-text-content {
+        padding: $spacing-3;
+        
+        &__paragraph {
+            font-size: $font-size-small;
+            line-height: 1.6;
+            margin: 0 0 $spacing-3 0;
+        }
+        
+        &__separator {
+            margin: $spacing-3 0 0 0;
+        }
+    }
+}
+
+// Media query pour les très petits écrans
+@include respond-to(sm) {
+    .about-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        max-width: 95%;
+        line-height: 1.1;
+    }
+    
+    .about-identity {
+        padding: $spacing-2;
+        
+        &__content {
+            padding: 0 $spacing-1;
+        }
+    }
+    
+    .about-separator {
+        margin: $spacing-1 0;
+    }
+    
+    .about-subtitle {
+        font-size: $font-size-small;
+    }
+} 

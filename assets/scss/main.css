@@ -1,0 +1,39 @@
+@use 'abstracts';
+@use 'base/reset';
+@use 'base/typography';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/grid';
+@use 'layout/hero-wrapper';
+@use 'components/buttons';
+@use 'components/navigation';
+@use 'components/hero';
+@use 'components/gallery';
+@use 'components/carousel';
+@use 'pages/home';
+@use 'pages/about';
+@use 'pages/projects';
+@use 'pages/contact';
+@use 'responsive/tablet';
+@use 'responsive/mobile';
+:root {
+  --color-bg: #252422;
+  --color-bg-secondary: #403D39;
+  --color-accent: #EB2828;
+  --color-tertiary: #CCC5B9;
+  --color-text: #FFFCF2;
+  --font-text: "Satoshi Variable", sans-serif;
+  --font-size-base: 1.25rem;
+  --max-width: 1200px;
+}
+
+.bg-main {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: url("../images/ui/placeholder-bg.jpg") center center/cover no-repeat;
+  pointer-events: none;
+}
+/*# sourceMappingURL=main.css.map */

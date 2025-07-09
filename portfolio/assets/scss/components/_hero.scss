@@ -1,0 +1,76 @@
+@use '../abstracts' as *;
+
+.hero-section {
+  border-bottom: 1px solid $color-tertiary;
+}
+
+.bordered-vertical {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    background: $color-tertiary;
+    z-index: 1;
+    height: 100%;
+    pointer-events: none;
+  }
+  &::before {
+    left: $container-padding;
+    right: auto;
+  }
+  &::after {
+    right: $container-padding;
+    left: auto;
+  }
+}
+
+.hero {
+  padding: $spacing-4 0;
+  min-height: calc(100vh - 6rem);
+
+  &__content {
+    text-align: center;
+  }
+
+  &__headline {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    @include heading-1;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    background-color: $color-tertiary;
+    margin: $spacing-1 auto;
+    display: block;
+  }
+
+  &__subtitle {
+    @include body-text;
+    font-weight: 400;
+  }
+}
+
+// Ajustement pour que le séparateur prenne la largeur du h1
+.hero__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__separator {
+  width: 100%;
+  max-width: 100%;
+} 
