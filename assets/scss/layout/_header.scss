@@ -22,14 +22,24 @@
   background-color: $color-bg;
 }
 
+.header.header--home {
+  position: absolute;
+  z-index: 10000;
+  background: transparent;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+
 .nav {
   position: relative;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center; // Centrer la navigation
   height: 100%;
-  z-index: 99998;
+  z-index: 10001;
 
   &__links {
     @include flex(row, center, center);
@@ -65,5 +75,11 @@
     @media (max-width: $breakpoint-md) {
       font-size: $font-size-small;
     }
+  }
+} 
+
+@media (min-width: 769px) {
+  .nav__links--desktop {
+    display: flex !important;
   }
 } 

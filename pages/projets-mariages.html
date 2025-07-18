@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projets Mariages - TOSAN PRODUCTIONS</title>
+    <meta name="description" content="Découvrez les plus beaux reportages de mariages par Samuel Tosan, photographe professionnel à Nivelles. Des souvenirs inoubliables et des émotions authentiques.">
+    <link rel="canonical" href="https://tosanproductions.com/pages/projets-mariages.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Projets Mariages - TOSAN PRODUCTIONS",
+      "url": "https://tosanproductions.com/pages/projets-mariages.html",
+      "description": "Découvrez les plus beaux reportages de mariages par Samuel Tosan, photographe professionnel à Nivelles. Des souvenirs inoubliables et des émotions authentiques."
+    }
+    </script>
     <link rel="icon" type="image/png" href="../assets/images/icones/logo-tosan.PNG">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&display=swap">
@@ -11,17 +22,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="page-projects-mariages">
-    <!-- Menu mobile overlay -->
-    <div class="nav__mobile-overlay">
+    <!-- Mobile menu overlay -->
+    <div class="nav__mobile-overlay" id="mobile-menu" aria-hidden="true">
         <div class="nav__mobile-content">
-            <ul class="nav__links nav__links--mobile">
-                <li class="nav__item"><a href="../index.html" class="nav__link">Accueil</a></li>
-                <li class="nav__item"><a href="a-propos.html" class="nav__link">À propos</a></li>
-                <li class="nav__item"><a href="../index.html#menu-fullpage" class="nav__link nav__link--active">Projets</a></li>
-                <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
-            </ul>
+            <nav aria-label="Menu mobile">
+                <ul class="nav__links nav__links--mobile">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Accueil</a></li>
+                    <li class="nav__item"><a href="a-propos.html" class="nav__link">À propos</a></li>
+                    <li class="nav__item"><a href="../index.html#menu-fullpage" class="nav__link nav__link--active">Projets</a></li>
+                    <li class="nav__item"><a href="tarifs.html" class="nav__link">Tarifs</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
+    <!-- Mobile burger button - outside grid container -->
+    <button class="nav__burger nav__burger--mobile" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav__burger-text">menu</span>
+        <svg class="nav__burger-icon nav__burger-icon--menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h16"/>
+            <path d="M4 18h16"/>
+            <path d="M4 6h16"/>
+        </svg>
+        <svg class="nav__burger-icon nav__burger-icon--close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+        </svg>
+    </button>
 
     <div class="grid-container">
         <header class="header">
@@ -110,12 +137,14 @@
                 <div class="footer__column">
                     <h3 class="footer__copyright">©COPYRIGHT TOSAN PRODUCTIONS</h3>
                     <p class="footer__credits">Site designed by Thibaud.R</p>
+                    <p style="font-size: 0.7em; margin-top: 2px;">Productions Associées<br/>BE0896.755.397</p>
                 </div>
             </div>
         </footer>
     </div>
 
     <script src="../assets/scripts/projectSelector.js"></script>
+    <script src="../assets/scripts/mobile-menu.js" defer></script>
     
     <!-- Script pour le menu mobile -->
     <script>
